@@ -1,16 +1,14 @@
-FROM node:22.5.1
+FROM node
 
-WORKDIR /app
+WORKDIR /first
 
-COPY package.json .
+COPY . /first
 
 RUN npm install
-
-COPY . .
 
 EXPOSE 3000
 
 CMD [ "node", "app.mjs" ]
 
 #docker build .
-#docker run -p 3000:3000 node-app
+#docker run -p 3000:3000 {{imgNumber}}

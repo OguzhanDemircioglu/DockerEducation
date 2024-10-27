@@ -1,8 +1,8 @@
-FROM node:22.5.1
+FROM node
 
-WORKDIR /app
+WORKDIR /second
 
-COPY . /app
+COPY . /second
 
 RUN npm install
 
@@ -11,4 +11,4 @@ EXPOSE 80
 CMD [ "node", "server.js" ]
 
 #docker build .
-#docker run -p 3000:3000 node-app
+#docker run -p 3001:80 sha256:0d7b939ced10e896d428209e58edd58e868464b172d0138fde55206a8fafc50d
