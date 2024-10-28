@@ -2,9 +2,11 @@ FROM node
 
 WORKDIR /second
 
-COPY . /second
+COPY package.json /second
 
 RUN npm install
+
+COPY . /second
 
 EXPOSE 80
 
