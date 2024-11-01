@@ -19,3 +19,8 @@ CMD ["node", "server.js"]
 
 #docker build -t bmi-app:l .
 #isim ver
+
+#docker tag node cray61/myhub:node
+#docker push cray61/myhub:node
+
+
