@@ -1,5 +1,7 @@
 FROM node:14
 
+ARG DEFAULT_PORT=80
+
 WORKDIR /fourthNode
 
 COPY package.json .
@@ -8,7 +10,7 @@ RUN npm install
 
 COPY . .
 
-EXPOSE 80
+EXPOSE $DEFAULT_PORT
 
 #VOLUME ["/fourthNode/feedback"]   anonymous volume
 

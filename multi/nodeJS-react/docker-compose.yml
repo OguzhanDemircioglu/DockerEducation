@@ -1,0 +1,33 @@
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - '80:80'
+    environment:
+      MONGO_USERNAME: cray61
+      MONGO_PASSWORD: 1
+    volumes:
+      - ./backend:/backendApp
+      - /backendApp/node_modules
+      - logs:/backendApp/logs
+
+  frontend:
+    build: ./frontend
+    ports:
+      - '3000:3000'
+    volumes:
+      - type: bind
+        source: ./frontend/src
+        target: /reactApp/src
+      - react_node_module:/reactApp/node_modules
+    stdin_open: true
+    tty: true # console dan input al
+    depends_on:
+      - backend
+
+volumes:
+  logs:
+  react_node_module:
